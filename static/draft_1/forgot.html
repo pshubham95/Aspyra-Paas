@@ -1,0 +1,170 @@
+<html>
+<head>
+<link type = "text/css" rel = "stylesheet" href = "css/bootstrap.css">
+<link type = "text/css" rel = "stylesheet" href = "css/custom.css">
+<script type = "text/javascript" src = "js/jquery-2.1.4.min.js"></script>
+<script type = "text/javascript" src = "js/bootstrap.js"></script>
+<script type = "text/javascript" src = "js/custom.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+</head>
+<body style="background-image: url('images/cream_pixels_@2X.png') ; background-repeat:repeat; ">
+    <div class="container">    
+    	<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <div class="row">
+<div class="col-md-2">
+    
+    </div>
+<div class="col-md-10">
+</div>
+    
+</div>
+</div>
+</div>
+
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">     
+              
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Sign In</div>
+                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form" action="login.php" method="POST">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="MIS" required>                                        
+                                    </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                        <input id="login-password" type="password" class="form-control pwd" name="password" placeholder="password" required>                              
+                                    </div>
+                                    
+
+                                
+                            <div class="input-group">
+                                      <a href = "forgot.html">Forgot Password?</a>
+                                    </div>
+
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                      <input id="btn-login" type="submit" class="btn btn-success" value = "Login" onclick="change_load();">
+                                      <a id="btn-login" href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()"class="btn btn-primary" >Register </a>
+
+                                    </div>
+                                </div>
+
+
+                               
+                            </form>     
+
+</div>
+</div>
+</div>
+</div>
+
+
+                        </div>
+
+                    </div> 
+                   
+        </div>
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <div class="panel-title">Sign Up</div>
+                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                        </div>  
+                        <div class="panel-body" >
+                            <form id="signupform" class="form-horizontal" role="form" action="register.php" method="POST" onsubmit ="return validate();">
+                                
+                                <div id="signupalert" style="display:none" class="alert alert-danger">
+                                    <p>Error:</p>
+                                    <span></span>
+                                </div>
+                                    
+                                
+                                  
+                                <div class="form-group">
+                                    <label for="email" class="col-md-3 control-label">MIS</label>
+                                    <div class="col-md-9">
+                                        <input name="username" type="text" id="username" type="text" class="form-control" maxlength="15" placeholder="MIS" required>
+                                         <span id="user-result"></span>
+                                    </div>
+                                </div>
+                                    
+                                <div class="form-group">
+                                    <label for="firstname" class="col-md-3 control-label">Full Name</label>
+                                    <div class="col-md-9">
+                                        <input id = "firstname" type="text" class="form-control" name="firstname" placeholder="Full Name" required>
+                                    </div>
+                                </div>
+                               
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Password</label>
+                                    
+                                    <div class="col-md-9">
+                                        <input id = "passwd" type="password" class="form-control" name="passwd" placeholder="Password" required>
+                                              
+                                    </div>
+                                                
+
+                                    
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">Re-type Password</label>
+                                    <div class="col-md-9">
+                                        <input id = "re-passwd" type="password" class="form-control" name="passwd" placeholder="Re-type Password" required>
+                                    </div>
+                                </div>
+                                  
+                                 <div class="form-group">
+                                    <label for="password" class="col-md-3 control-label">E-mail</label>
+                                    
+                                    <div class="col-md-9">
+                                        <input id = "email" type="email" class="form-control" name="email" placeholder="E-mail" required>
+                                              
+                                    </div>
+                                                
+
+                                    
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="icode" class="col-md-3 control-label">Phone Number</label>
+                                    <div class="col-md-9">
+                                        <input id = "number" type="number" class="form-control" name="number" placeholder="" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <!-- Button -->                                        
+                                    <div class="col-md-offset-3 col-md-9">
+                                        <input id="btn-signup" type="submit" value="Sign Up" class="btn btn-info" ><i class="icon-hand-right">
+                                       
+                                    </div>
+                                </div>
+                               
+                                
+                                
+                            </form>
+                         </div>
+                    </div>
+
+               
+               
+                
+         </div> 
+    </div>
+    
+    </body>

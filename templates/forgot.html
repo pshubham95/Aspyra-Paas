@@ -1,0 +1,191 @@
+<html>
+<head>
+<link type = "text/css" rel = "stylesheet" href = "../static/css/bootstrap.css">
+<link type = "text/css" rel = "stylesheet" href = "../static/css/custom.css">
+<script type = "text/javascript" src = "../static/js/jquery-2.1.4.min.js"></script>
+<script type = "text/javascript" src = "../static/js/bootstrap.js"></script>
+<link type="text/css" rel="stylesheet" href="../static/css/font-awesome.min.css">
+ 
+<script type="text/javascript">
+var v_email = false;
+var v_mis = false;
+function validate_email()
+{
+    var email = document.getElementById('login-username').value;
+var filter=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+if (filter.test(email))
+{
+    document.getElementById('mail').className =  "input-group has-success";
+    v_email = true;
+        validate();
+
+}
+    else
+    { 
+        document.getElementById('mail').className = "input-group has-error";
+        v_email = false;
+        validate();
+
+    }
+}
+    
+function validate_mis()
+{
+    var mis = document.getElementById('mis').value;
+    if(mis.length == 9)
+    {
+        document.getElementById('m').className =  "input-group has-success";
+        v_mis = true;
+        validate();
+    }
+    
+    else
+    {
+        document.getElementById('m').className = "input-group has-error";
+        v_mis = false;
+        validate();
+    }
+  
+    
+    
+}
+    
+function validate()
+    {
+        if( v_mis && v_email)
+            document.getElementById('btn-login').disabled = false;
+        else
+            document.getElementById('btn-login').disabled = true;
+        
+    }
+        
+ function init()
+    {
+        document.getElementById('btn-login').disabled = true;
+        document.getElementById('mis').value = '';
+        document.getElementById('login-username').value = '';
+
+
+    }
+    
+    $(function() {
+    $('#btn-login').click(function() {
+        document.getElementById('spinner').removeAttribute("style");
+        $.ajax({
+            url: '/forgot',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                var response = JSON.parse(response);
+                if(response['html'] == '404')
+                {
+                    document.getElementById('error').style.display = '';
+                    document.getElementById('spinner').style.display = 'none';
+
+                }
+                else
+                {
+                    document.getElementById('error').style.display = 'none';
+                    document.getElementById('spinner').style.display = 'none';
+                    document.getElementById('loginbox').style.display = 'none';
+                    document.getElementById('msg').style.display = 'block';
+
+                }
+
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+    });
+</script>
+</head>
+<body style=" " onload="init()">
+    <div class="container">    
+    	
+
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">     
+              
+            <div class="panel panel-info" >
+                    <div class="panel-heading">
+                        <div class="panel-title">Password Recovery Wizard</div>
+                        
+                    </div>     
+
+                    <div style="padding-top:30px" class="panel-body" >
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form id="loginform" class="form-horizontal" role="form" action="" method="POST">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group" id="mail">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input id="login-username" type="email" class="form-control" name="username" value="" placeholder="Enter registered e-mail address" required onkeyup="validate_email()">                                        
+                                    </div>
+                            
+                            
+                             <div style="margin-bottom: 25px" class="input-group" id="m">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input id="mis" type="text" class="form-control" name="mis" value="" placeholder="Enter your MIS number" required onkeyup="validate_mis()">                                        
+                                    </div>
+                            
+<span class="label label-sm label-danger" style="display:none;" id="error">Invalid MIS or e-mail ID</span>
+
+                                <div style="margin-top:10px" class="form-group">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+                                        <button id="btn-login" type="button" class="btn btn-success"><i class="fa fa-spinner fa-spin" id="spinner" style = "display:none;"></i> Submit</button>
+                                      
+
+                                    </div>
+                                </div>
+
+
+                               
+                            </form>     
+
+</div>
+</div>
+</div>
+</div>
+
+
+                        </div>
+
+                    </div> 
+                   
+        </div>
+    </div>
+    
+<div class="container" id="msg" style="display:none">
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="text-center">
+<span class="glyphicon glyphicon-exclamation-sign"></span> &nbsp;Success!
+              <small>Mail Sent</small>
+          </h3>
+        </div>
+        <div class="panel-body">
+          <p>We have sent a mail with a temporary password. Use the temporary password to log in to the account.</p><br>
+            <a href = "/" ><button type="button" class="btn btn-info">Login</button></a>
+
+            
+          </div>
+        </div>
+      </div>
+     
+    </div>
+   
+</div>    
+
+    </body>

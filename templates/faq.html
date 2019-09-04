@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="app" xmlns:style="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title>Aspyra</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/icon.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../static/js/datepicker/datepicker.css" type="text/css" />
+<link rel="stylesheet" href="../static/js/slider/slider.css" type="text/css" />
+<link rel="stylesheet" href="../static/js/chosen/chosen.css" type="text/css" />
+<link rel="stylesheet" href="../static/css/jquery.materialripple.css">
+
+  <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<div id="loading"></div>
+<div id = "name2" style="display:none"></div>
+<body class="" id="b">
+  <section class="vbox">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
+      <div class="navbar-header aside-md dk">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="index.html" class="navbar-brand">
+          <span class="hidden-nav-xs">          <img src="../static/images/slack-1.svg" class="m-r-sm" alt="scale">
+Aspyra</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="fa fa-cog"></i>
+        </a>
+      </div>
+
+
+      <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+        <li class="hidden-xs">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="i i-chat3"></i>
+            <span class="badge badge-sm up bg-danger count">2</span>
+          </a>
+          <section class="dropdown-menu aside-xl animated flipInY">
+            <section class="panel bg-white">
+              <div class="panel-heading b-light bg-light">
+                <strong>You have <span class="count">2</span> notifications</strong>
+              </div>
+              <div class="list-group list-group-alt">
+                <a href="#" class="media list-group-item">
+                  <span class="pull-left thumb-sm">
+                    <img id = "profile" src="../static/images/a0.png" alt="..." class="img-circle">
+                  </span>
+                  <span class="media-body block m-b-none">
+                    Use awesome animate.css<br>
+                    <small class="text-muted">10 minutes ago</small>
+                  </span>
+                </a>
+                <a href="#" class="media list-group-item">
+                  <span class="media-body block m-b-none">
+                    1.0 initial released<br>
+                    <small class="text-muted">1 hour ago</small>
+                  </span>
+                </a>
+              </div>
+              <div class="panel-footer text-sm">
+                <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
+              </div>
+            </section>
+          </section>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="thumb-sm avatar pull-left">
+              <img id = "profile1" src="../static/images/a0.png" alt="...">
+            </span>
+			  <span id="name"></span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight">
+            <li>
+              <span class="arrow top"></span>
+              <a href="#">Settings</a>
+            </li>
+            <li>
+              <a href="profile.html">Profile</a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="badge bg-danger pull-right">3</span>
+                Notifications
+              </a>
+            </li>
+            <li>
+              <a href="docs.html">Help</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-black aside-md hidden-print" id="nav">
+          <section class="vbox">
+            <section class="w-f scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                <div class="clearfix wrapper dk nav-user hidden-xs">
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb avatar pull-left m-r">
+                        <img id = "profile2" src="../static/images/a0.png" class="dker" alt="...">
+                        <i class="on md b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-t-xs">
+                          <strong class="font-bold text-lt" id="name1"></strong>
+                          <b class="caret"></b>
+                        </span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                      <li>
+                        <span class="arrow top hidden-nav-xs"></span>
+                        <a href="#">Settings</a>
+                      </li>
+                      <li>
+                        <a href="profile.html">Profile</a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <span class="badge bg-danger pull-right">3</span>
+                          Notifications
+                        </a>
+                      </li>
+                      <li>
+                        <a href="docs.html">Help</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <!-- nav -->
+               <nav class="nav-primary hidden-xs">
+                  <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
+                  <ul class="nav nav-main" data-ride="collapse">
+                    <li  >
+                      <a class="auto" href = "#" onclick="redirect('/login')">
+                        <i class="i i-statistics icon">
+                        </i>
+                        <span class="font-bold">Home</span>
+                      </a>
+                    </li>
+
+                    <li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-grid2 icon">
+                        </i>
+                        <span class="font-bold">Application List</span>
+                      </a>
+                      <ul class="nav dk" id="side">
+
+
+
+
+                      </ul>
+                    </li>
+                    <li class="active">
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-docs icon">
+                        </i>
+                        <span class="font-bold">Deploy Application</span>
+                      </a>
+                      <ul class="nav dk">
+                        <li >
+                          <a href="#" class="auto" onclick="redirect('/singlecontainer')">
+                            <i class="i i-dot"></i>
+
+                            <span>Single Container App</span>
+                          </a>
+                        </li>
+                        <li class="active" >
+                          <a href="#" class="auto">
+                            <i class="i i-dot"></i>
+
+                            <span>Deploy Application with compose (Provide compose file)</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="#" class="auto">
+                            <i class="i i-dot"></i>
+
+                            <span>Deploy Application with compose (Auto-generate compose file)</span>
+                          </a>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="fa fa-user">
+                        </i>
+                        <span class="font-bold">Profile</span>
+                      </a>
+
+                    </li>
+                  </ul>
+                  <div class="line dk hidden-nav-xs"></div>
+
+
+                </nav>
+              </div>
+            </section>
+
+            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+              <a href="modal.lockme.html" data-toggle="ajaxModal" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+                <i class="i i-logout"></i>
+              </a>
+              <a href="#nav" data-toggle="class:nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                <i class="i i-circleleft text"></i>
+                <i class="i i-circleright text-active"></i>
+              </a>
+            </footer>
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="vbox">
+            <section class="scrollable padder">
+              <div class="m-b-md">
+              </div>
+
+
+              <section class="panel panel-default">
+                <header class="panel-heading font-bold">
+					<h4>FAQ <span id="app_name"></span></h4>
+                </header>
+
+                <div class="panel-body">
+                  <div class="panel-group m-b" id="accordion2">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                        What is the Deploy and Test option?
+                        </a>
+                      </div>
+                      <div id="collapseOne" class="panel-collapse in">
+                        <div class="panel-body text-sm">
+                        The Deploy and Test option enables the user to select which packages he wishes have in their
+                        application environment. The user is then given access to a shell via the browser. This shell
+                        connects him to a container in which his desired packages have already been installed and his
+                        application folder will already be present in it. Now the user can run his application, make
+                        changes, test it etc. Everytime the system restarts the user has to manually restart services on
+                        container.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                        What is the Deploy option?
+                        </a>
+                      </div>
+                      <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        Using the Deploy option, a user can easily deploy his tested and ready website online. This option
+                        does not allow the user to make any changes to web application. It is a simple, fast and convenient
+                        way to deploy applications. Applications restart automatically when the system restarts.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                        What is the Develop and Deploy (CMS) option?
+                        </a>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        Using this option a user can easily develop a data publishing site using anyone of the following
+                        CMS choices - Wordpress, Drupal and Joomla. The installation procedure itself will happen on the
+                        college server and you can start using the application from there.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                        What is Calcy?
+                        </a>
+                      </div>
+                      <div id="collapseFour" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        Calcy is a unique feature provided by us. It enables a user to enter some code he wishes to execute
+                        and that code will be run on the server and the result shall be displayed to the user. The user
+                        doesn't need to compile and run the code locally.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                        What is COE-Safe?
+                        </a>
+                      </div>
+                      <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        COE-Safe is a storage service which allows users to store data on the server. Users can store, view
+                        delete, edit, download and share files using this feature.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSix">
+                        What is Linux Learning?
+                        </a>
+                      </div>
+                      <div id="collapseSix" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        Linux learning is a service which helps users to learn more about using Linux based OS' using command
+                        line interface. This feature is basically useful for users new to Linux environment.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSeven">
+                        What is the deployment limit?
+                        </a>
+                      </div>
+                      <div id="collapseSeven" class="panel-collapse collapse">
+                        <div class="panel-body text-sm">
+                        We have provided a limit of maximum 3 applications allowed per option (eg - 3 for CMS, 3 for Deploy etc.)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </section>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+        </section>
+      </section>
+    </section>
+  </section>
+  <script src="../static/js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../static/js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../static/js/app.js"></script>
+  <script src="../static/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- datepicker -->
+  <script src="../static/js/datepicker/bootstrap-datepicker.js"></script>
+  <!-- slider -->
+  <script src="../static/js/slider/bootstrap-slider.js"></script>
+  <!-- file input -->
+  <script src="../static/js/file-input/bootstrap-filestyle.min.js"></script>
+  <!-- wysiwyg -->
+  <script src="../static/js/wysiwyg/jquery.hotkeys.js"></script>
+  <script src="../static/js/wysiwyg/bootstrap-wysiwyg.js"></script>
+  <script src="../static/js/wysiwyg/demo.js"></script>
+  <!-- markdown -->
+  <script src="../static/js/markdown/epiceditor.min.js"></script>
+  <script src="../static/js/markdown/demo.js"></script>
+
+  <script src="../static/js/chosen/chosen.jquery.min.js"></script>
+  <script src="../static/js/app.plugin.js"></script>
+		<script src="../static/js/jquery.materialripple.js"></script>
+<script src="../static/js/redirect.js"></script>
+<script src="../static/js/profile.js"></script>
+<script src = "../../static/js/side.js"></script>
+<script src="../../static/js/type3.js"></script>
+<script src="../static/js/control_cms.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>
+  <meta charset="utf-8" />
+  <title>Aspyra</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+	<link rel="shortcut icon" type="image/png" href="../static/images/imageedit_9_9549995377.png"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/icon.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/app.css" type="text/css" />
+<script src="../static/js/redirect.js"></script>
+
+<link rel="stylesheet" href="../static/css/jquery.materialripple.css">
+
+<style>
+.input-no-spinner::-webkit-outer-spin-button, .input-no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.image-preview-input {
+    position: relative;
+	overflow: hidden;
+	margin: 0px;
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+    margin-left:2px;
+}
+
+
+
+
+</style>
+    <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<body class="" onload="init();" id = 'b' style="display:none;">
+
+
+  <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
+    <div class="container aside-xl">
+      <a class="navbar-brand block"><span><img src="../static/images/aspyra_logo.png"></span>&nbsp;Aspyra</a>
+      <section class="m-b-lg">
+        <header class="wrapper text-center">
+          <strong>Sign in</strong>
+        </header>
+
+        <form action="index.html">
+           <div class="form-group">
+                          <input type="number" id="login-username" name="username" class="form-control input-no-spinner" placeholder="MIS" onkeyup="check_login_mis();">
+           </div>
+
+			 <div class="form-group">
+                          <input type="password" id="login-password" name="password" class="form-control" placeholder="Enter password" onkeyup="check_login_pass();">
+           </div>
+
+			<div class="checkbox i-checks">
+                          <label>
+                            <input type="checkbox" value="Remember Me" name="remember" id = "r" onchange="rem();">
+                            <i></i>
+							  Remember Me
+                          </label>
+                        </div>
+			 <div class="form-group">
+                                      <span id="messages" class = "label label-sm label-danger"></span>
+                                    </div>
+
+          <button type = 'button' id = 'btnSignIn' class="btn btn-lg btn-primary floating ripple btn-block" onclick="document.getElementById('s_spin').style.display = 'inline';"><i id = "s_spin" style = "display:none;" class="pull-left fa fa-spinner fa-pulse"></i>
+Sign in</button>
+          <div class="text-center m-t m-b"><a href="#"><small>Forgot password?</small></a></div>
+          <div class="line line-dashed"></div>
+          <p class="text-muted text-center"><small>Do not have an account?</small></p>
+          <a class="btn btn-lg btn-success floating ripple btn-block" onclick="document.getElementById('content').style.display = 'none';
+																			   document.getElementById('content2').style.display = 'block';"><i style = "display:none;" class="pull-left fa fa-spinner fa-pulse"></i>Create an account</a>
+        </form>
+      </section>
+    </div>
+  </section>
+
+
+
+	<section id="content2" style = "display:none" class="m-t-lg wrapper-md animated fadeInUp">
+    <div class="container aside-xl">
+      <a class="navbar-brand block"><span><img src="../static/images/aspyra_logo.png"></span>&nbsp;Aspyra</a>
+      <section class="m-b-lg">
+        <header class="wrapper text-center">
+          <strong>Sign Up</strong>
+        </header>
+
+        <form action="index.html">
+           <div class="input-group m-b" id="mis">
+			                                           <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+                          <input type="number" id="username" name="mis" class="form-control input-no-spinner" placeholder="MIS">
+			   <span class="input-group-addon" style = "display:none" id = "avail"><i class="fa fa-check-circle"></i></span>
+			                                           <span class="input-group-addon" style="display:none;" id="na"><i class="fa fa-times"></i></span>
+			   			                                           <span class="input-group-addon" style="display:none;" id="proc"><i class="fa fa-spinner fa-pulse"></i></span>
+
+
+           </div>
+
+			 <div class="input-group m-b" id="fname">
+				                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                          <input id="firstname" type="text" class="form-control" name="f_name" value="" placeholder="Full Name" onkeyup="check_name();" required>
+           </div>
+
+			<div class="input-group m-b" id="pass">
+				                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+				<input id="passwd" type="password" class="form-control pwd" name="passwd_reg" placeholder="Password" required onkeyup="check_pass();">          </div>
+
+						<div class="input-group m-b" id="repass">
+							                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+
+
+							<input id="re-passwd" type="password" class="form-control pwd" name="passwd_reg_re" placeholder="Re-type Password" onkeyup = "check_pass();" required>  </div>
+
+
+					<div class="input-group m-b" id="mail">
+						                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+
+
+						<input id="email" type="email" class="form-control" name="email_reg" value="" placeholder="E-mail" onkeyup="check_email();" required></div>
+
+
+						<div class="input-group m-b" id="num">
+
+							                                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+
+							<input id="number" type="number" class="form-control" name="number_reg" value="" placeholder="Phone number" required onkeyup="check_phone();"></div></form>
+
+		                              <form id="photoform" class="form-horizontal" method = "post" enctype="multipart/form-data" >
+
+
+
+			 <div class="input-group m-b image-preview">
+                <input type="text" id = 'ph_name' class="form-control image-preview-filename" disabled="disabled">
+                <span class="input-group-btn">
+                    <!-- image-preview-clear button -->
+                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <span class="glyphicon glyphicon-remove"></span> Clear
+                    </button>
+                    <!-- image-preview-input -->
+                    <div class="btn btn-default image-preview-input">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        <span class="image-preview-input-title">Upload Profile Picture</span>
+                        <input type="file" accept="image/png, image/jpeg, image/gif" id="ph" name="input-file-preview"/> <!-- rename it -->
+                    </div>
+                </span>
+            </div><!-- /input-group image-preview [TO HERE]-->
+
+		  </form>
+
+
+
+
+          <button type = 'button' id = 'btnSignUp' class="btn btn-lg btn-primary floating ripple btn-block" onclick="document.getElementById('r_spin').style.display = 'inline';"><i id = "r_spin" style = "display:none;" class="pull-left fa fa-spinner fa-pulse"></i>
+Sign Up</button>
+          <div class="line line-dashed"></div>
+          <a class="btn btn-lg btn-success floating ripple btn-block" onclick="document.getElementById('content2').style.display = 'none';
+																			   document.getElementById('content').style.display = 'block';"><i style = "display:none;" class="pull-left fa fa-spinner fa-pulse"></i>Log In</a>
+
+      </section>
+    </div>
+  </section>
+
+
+	 <div class="page-alerts" id="alert-3">
+    <div class="alert alert-success page-alert" id="alert-1" style="display:none;" >
+        <strong><i class="fa fa-check-circle" style="color:green;"></i></strong> Your account has been successfully created!<br><br>
+        <a id="signinlink" href="/" class="btn btn-success">Log In</a>
+    </div>
+
+                                <div class="alert alert-danger page-alert" id="alert-2" style="display:none;" >
+        <strong><i class="fa fa-user-times" style="color:red;"></i></strong> Something went wrong while creating your account! Please try again
+        <br><br> <a id="btn-login" href="#" onClick="$('#content').hide(); $('#content2').show();$('#alert-3').hide()" class="btn btn-primary" >Register </a>
+    </div>
+
+
+
+
+                            </div>
+  <!-- footer -->
+
+  <!-- / footer -->
+  <script src="../static/js/jquery.min.js"></script>
+<script type = "text/javascript" src = "../static/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../static/js/rollups/aes.js"></script>
+  <!-- Bootstrap -->
+  <script src="../static/js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../static/js/app.js"></script>
+  <script src="../static/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="../static/js/app.plugin.js"></script>
+		<script src="../static/js/jquery.materialripple.js"></script>
+	<script src="../static/js/custom.js"></script>
+
+	<script type="text/javascript">
+	$(function(){
+		$('.ripple').materialripple();
+	});
+	</script>
+
+</body>
+</html>

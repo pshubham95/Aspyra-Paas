@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="app" xmlns:style="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <title>Aspyra</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/icon.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="../static/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="../static/js/datepicker/datepicker.css" type="text/css" />
+<link rel="stylesheet" href="../static/js/slider/slider.css" type="text/css" />
+<link rel="stylesheet" href="../static/js/chosen/chosen.css" type="text/css" />
+<link rel="stylesheet" href="../static/css/jquery.materialripple.css">
+
+  <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<div id="loading"></div>
+<div id = "name2" style="display:none"></div>
+<body class="" id="b">
+  <section class="vbox">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
+      <div class="navbar-header aside-md dk">
+        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+          <i class="fa fa-bars"></i>
+        </a>
+        <a href="/" class="navbar-brand">
+          <span class="hidden-nav-xs">          <img src="../static/images/aspyra_logo.png" class="m-r-sm" alt="scale">
+Aspyra</span>
+        </a>
+        <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+          <i class="fa fa-cog"></i>
+        </a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="thumb-sm avatar pull-left">
+              <img id = "profile1" src="../static/images/a0.png" alt="...">
+            </span>
+			  <span id="name"></span> <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu animated fadeInRight">
+
+            <li>
+              <a href="/profile">Profile</a>
+            </li>
+
+            <li>
+              <a href="/faq">FAQ</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="/logout" data-toggle="ajaxModal" onclick="localStorage.clear();" >Logout</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+        </li>
+      </ul>
+    </header>
+    <section>
+      <section class="hbox stretch">
+        <!-- .aside -->
+        <aside class="bg-black aside-md hidden-print" id="nav">
+          <section class="vbox">
+            <section class="w-f scrollable">
+              <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                <div class="clearfix wrapper dk nav-user hidden-xs">
+                  <div class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb avatar pull-left m-r">
+                        <img id = "profile2" src="../static/images/a0.png" class="dker" alt="...">
+                        <i class="on md b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-t-xs">
+                          <strong class="font-bold text-lt" id="name1"></strong>
+                          <b class="caret"></b>
+                        </span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                      <li>
+                        <a href="/profile">Profile</a>
+                      </li>
+                      <li>
+                        <a href="/faq">FAQ</a>
+                      </li>
+                      <li class="divider"></li>
+                      <li>
+                        <a href="/logout" onclick = "localStorage.clear();" data-toggle="ajaxModal" >Logout</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <!-- nav -->
+                <nav class="nav-primary hidden-xs">
+                  <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
+                  <ul class="nav nav-main" data-ride="collapse">
+                    <li >
+                      <a class="auto" href = "/login" >
+                        <i class="i i-statistics icon">
+                        </i>
+                        <span class="font-bold">Home</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a class="auto" href = "/calcy" >
+                        <i class="fa fa-calculator">
+                        </i>
+                        <span class="font-bold">Calcy</span>
+                      </a>
+                    </li>
+
+                    <li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-grid2 icon">
+                        </i>
+                        <span class="font-bold">Application List</span>
+                      </a>
+                      <ul class="nav dk" id="side">
+
+
+
+
+
+
+
+                      </ul>
+                    </li>
+                    <li >
+                      <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="i i-docs icon">
+                        </i>
+                        <span class="font-bold">Deploy Application</span>
+                      </a>
+                      <ul class="nav dk">
+                        <li >
+                          <a href="/deploy_test" class="auto" >
+                            <i class="i i-dot"></i>
+
+                            <span>Deploy and Test</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="/deploy" class="auto" >
+                            <i class="i i-dot"></i>
+
+                            <span>Deploy Application</span>
+                          </a>
+                        </li>
+                        <li >
+                          <a href="/deploy_cms" class="auto">
+                            <i class="i i-dot"></i>
+
+                            <span>Develop and Deploy (CMS)</span>
+                          </a>
+                        </li>
+
+                      </ul>
+                    </li>
+                    <li >
+                      <a href="/profile" class="auto" >
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                        <i class="fa fa-user">
+                        </i>
+                        <span class="font-bold">Profile</span>
+                      </a>
+
+                    </li>
+
+                    <li>
+                                     <a href="#" class="auto">
+                        <span class="pull-right text-muted">
+                          <i class="i i-circle-sm-o text"></i>
+                          <i class="i i-circle-sm text-active"></i>
+                        </span>
+                                            <i class="fa fa-cloud">
+                                            </i>
+                                            <span class="font-bold">COE-Safe</span>
+                                        </a>
+                                        <ul class="nav dk">
+                                            <li>
+                                                <a href="/store_overview" class="auto">
+                                                    <i class="i i-dot"></i>
+
+                                                    <span>Drive Overview</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/drive_save" class="auto">
+                                                    <i class="i i-dot"></i>
+
+                                                    <span>Store Data</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                  </ul>
+                  <div class="line dk hidden-nav-xs"></div>
+
+
+                </nav>
+              </div>
+            </section>
+
+            <footer class="footer hidden-xs no-padder text-center-nav-xs">
+              <a href="/logout" onclick = "localStorage.clear();" data-toggle="ajaxModal" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+                <i class="i i-logout"></i>
+              </a>
+              <a href="#nav" data-toggle="class:nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                <i class="i i-circleleft text"></i>
+                <i class="i i-circleright text-active"></i>
+              </a>
+            </footer>
+          </section>
+        </aside>
+        <!-- /.aside -->
+        <section id="content">
+          <section class="vbox">
+            <section class="scrollable padder">
+              <div class="m-b-md">
+              </div>
+
+
+              <section class="panel panel-success">
+                <header class="panel-heading font-bold">
+					<h4>Application : <span id="app_name"></span></h4>
+                </header>
+                <div class="panel-body">
+                    Your Application has been deployed on the following IP: <a href = "#" id = "ip_a"><span id="ip"></span></a> <br>
+                    Control your Application: <button class="btn btn-success btn-sm" id="start">Start</button>  <button class="btn btn-primary btn-sm" id="stop">Stop</button>  <button class="btn btn-danger btn-sm" id="del">Delete</button> <br><br>
+                    Enter the IP in a browser or you can access your application in the Window below.
+                    <h3>Please read the following instructions before starting installation</h3>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Database: MySQL</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span style="font-weight: bold;">1. During installation while configuring your database please enter the following details:</span><br>
+                                Database name: myDB<br>
+                                Database username: root  <br>
+                                Database password: password used by you while logging in <br>
+                            <span style="font-weight: bold;">2. In advanced options for database<br></span>
+                                 Database host: mysql<br>
+                                ***Do not change the port*** <br>
+                            <span style="font-weight: bold;">3. Click on Save and Continue</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                  <h4>Get Dump of SQL database: </h4>
+                </div>
+                <div class="panel-body">
+                  <h4>View Application</h4>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="display" class="embed-responsive-item" ></iframe>
+                </div>
+
+              </section>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+        </section>
+      </section>
+    </section>
+  </section>
+  <script src="../static/js/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../static/js/bootstrap.js"></script>
+  <!-- App -->
+  <script src="../static/js/app.js"></script>
+  <script src="../static/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <!-- datepicker -->
+  <script src="../static/js/datepicker/bootstrap-datepicker.js"></script>
+  <!-- slider -->
+  <script src="../static/js/slider/bootstrap-slider.js"></script>
+  <!-- file input -->
+  <script src="../static/js/file-input/bootstrap-filestyle.min.js"></script>
+  <!-- wysiwyg -->
+  <script src="../static/js/wysiwyg/jquery.hotkeys.js"></script>
+  <script src="../static/js/wysiwyg/bootstrap-wysiwyg.js"></script>
+  <script src="../static/js/wysiwyg/demo.js"></script>
+  <!-- markdown -->
+  <script src="../static/js/markdown/epiceditor.min.js"></script>
+  <script src="../static/js/markdown/demo.js"></script>
+
+  <script src="../static/js/chosen/chosen.jquery.min.js"></script>
+  <script src="../static/js/app.plugin.js"></script>
+		<script src="../static/js/jquery.materialripple.js"></script>
+<script src="../static/js/redirect.js"></script>
+<script src="../static/js/profile.js"></script>
+<script src="../static/js/side.js"></script>
+<script src="../static/js/type3.js"></script>
+<script src="../static/js/control_cms.js"></script>
+
+
+</body>
+</html>

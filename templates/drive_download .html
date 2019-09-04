@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>
+    <meta charset="utf-8"/>
+    <title>Aspyra</title>
+    <meta name="description"
+          content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/animate.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/icon.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/font.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/app.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/js/datepicker/datepicker.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/js/slider/slider.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/js/chosen/chosen.css" type="text/css"/>
+    <link rel="stylesheet" href="../static/css/jquery.materialripple.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<div id="loading"></div>
+<div id="name2" style="display:none"></div>
+<body class="" id="b" onload="document.getElementById('sub').disabled = true;">
+<section class="vbox">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
+        <div class="navbar-header aside-md dk">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="/" class="navbar-brand">
+          <span class="hidden-nav-xs">          <img src="../static/images/aspyra_logo.png" class="m-r-sm" alt="scale">
+Aspyra</span>
+            </a>
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+                <i class="fa fa-cog"></i>
+            </a>
+        </div>
+
+
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="thumb-sm avatar pull-left">
+              <img id="profile1" src="../static/images/a0.png" alt="...">
+            </span>
+                    <span id="name"></span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+                  <li>
+                    <a href="/profile">Profile</a>
+                  </li>
+
+                  <li>
+                    <a href="/faq">FAQ</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="/logout" data-toggle="ajaxModal" onclick="localStorage.clear();">Logout</a>
+                  </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <section>
+        <section class="hbox stretch">
+            <!-- .aside -->
+            <aside class="bg-black aside-md hidden-print" id="nav">
+                <section class="vbox">
+                    <section class="w-f scrollable">
+                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
+                             data-size="10px" data-railOpacity="0.2">
+                            <div class="clearfix wrapper dk nav-user hidden-xs">
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb avatar pull-left m-r">
+                        <img id="profile2" src="../static/images/a0.png" class="dker" alt="...">
+                        <i class="on md b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-t-xs">
+                          <strong class="font-bold text-lt" id="name1"></strong>
+                          <b class="caret"></b>
+                        </span>
+                      </span>
+                                    </a>
+                                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+                                      <li>
+                                        <a href="/profile">Profile</a>
+                                      </li>
+
+                                      <li>
+                                        <a href="/faq">FAQ</a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                        <a href="/logout" data-toggle="ajaxModal" onclick="localStorage.clear();">Logout</a>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <!-- nav -->
+                            <nav class="nav-primary hidden-xs">
+                              <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
+                              <ul class="nav nav-main" data-ride="collapse">
+                                <li  >
+                                  <a class="auto" href = "/login" >
+                                    <i class="i i-statistics icon">
+                                    </i>
+                                    <span class="font-bold">Home</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a class="auto" href = "/calcy" >
+                                    <i class="fa fa-calculator">
+                                    </i>
+                                    <span class="font-bold">Calcy</span>
+                                  </a>
+                                </li>
+
+                                <li >
+                                  <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="i i-grid2 icon">
+                                    </i>
+                                    <span class="font-bold">Application List</span>
+                                  </a>
+                                  <ul class="nav dk" id="side">
+
+
+
+
+
+
+
+                                  </ul>
+                                </li>
+                                <li >
+                                  <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="i i-docs icon">
+                                    </i>
+                                    <span class="font-bold">Deploy Application</span>
+                                  </a>
+                                  <ul class="nav dk">
+                                    <li >
+                                      <a href="/deploy_test" class="auto" >
+                                        <i class="i i-dot"></i>
+
+                                        <span>Deploy and Test</span>
+                                      </a>
+                                    </li>
+                                    <li >
+                                      <a href="/deploy" class="auto" >
+                                        <i class="i i-dot"></i>
+
+                                        <span>Deploy Application</span>
+                                      </a>
+                                    </li>
+                                    <li >
+                                      <a href="/deploy_cms" class="auto">
+                                        <i class="i i-dot"></i>
+
+                                        <span>Develop and Deploy (CMS)</span>
+                                      </a>
+                                    </li>
+
+                                  </ul>
+                                </li>
+                                <li >
+                                  <a href="/profile" class="auto" >
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="fa fa-user">
+                                    </i>
+                                    <span class="font-bold">Profile</span>
+                                  </a>
+
+                                </li>
+
+                                <li class="active">
+                                                 <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                                        <i class="fa fa-cloud">
+                                                        </i>
+                                                        <span class="font-bold">COE-Safe</span>
+                                                    </a>
+                                                    <ul class="nav dk">
+                                                        <li class="active">
+                                                            <a href="/store_overview" class="auto">
+                                                                <i class="i i-dot"></i>
+
+                                                                <span>Drive Overview</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/drive_save" class="auto">
+                                                                <i class="i i-dot"></i>
+
+                                                                <span>Store Data</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                              </ul>
+                              <div class="line dk hidden-nav-xs"></div>
+
+
+                            </nav>
+                        </div>
+                    </section>
+
+                    <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                        <a href="/logout" onclick="localStorage.clear();" data-toggle="ajaxModal"
+                           class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+                            <i class="i i-logout"></i>
+                        </a>
+                        <a href="#nav" data-toggle="class:nav-xs"
+                           class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                            <i class="i i-circleleft text"></i>
+                            <i class="i i-circleright text-active"></i>
+                        </a>
+                    </footer>
+                </section>
+            </aside>
+            <!-- /.aside -->
+            <section id="content">
+                <section class="vbox">
+                    <section class="scrollable padder">
+                        <div class="m-b-md">
+                        </div>
+
+
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title" style="font-weight: bold">Files Uploaded</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <div class="form-group" id = "share" style="display:none;">
+                                            <label class="col-sm-2 control-label">Enter MIS of person to be shared with</label>
+                                            <div class="col-sm-10">
+                                            <input type="number" class="form-control" id="mis_n">
+                                            <span class="help-block m-b-none label label-md label-danger" id="err" style="display:none;">We could not find any records for the given MIS</span>
+                                            <span class="help-block m-b-none label label-md label-success" id="succ" style="display:none;">Record Found! <span id = "name3"></span> <span id = "mis"></span></span>
+
+
+                                          </div>
+<br><br>
+                                            <div class="col-sm-10">
+                                             <button type="button" class="btn btn-success ripple" id="sub">Submit</button>
+                                            </div>
+                                  </div>
+
+                                  <div class="line line-dashed b-b line-lg pull-in"></div>
+
+                                    <table id="myTable" class="table table-responsive table-striped">
+                                        <thead >
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="t">
+
+                                        </tbody>
+                                    </table>
+
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title" style="font-weight: bold">Shared Files</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                          <table id="myshare" class="table table-responsive table-striped">
+                                              <thead >
+                                              <tr>
+                                                  <th>From</th>
+
+                                              </tr>
+                                              </thead>
+                                              <tbody id="s">
+
+                                              </tbody>
+                                          </table>
+                                        </div>
+                                </div>
+                            </div>
+
+                    </section>
+                </section>
+            </section>
+
+        </section>
+    </section>
+    <script src="../static/js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../static/js/bootstrap.js"></script>
+    <!-- App -->
+    <script src="../static/js/app.js"></script>
+    <script src="../static/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- datepicker -->
+    <script src="../static/js/datepicker/bootstrap-datepicker.js"></script>
+    <!-- slider -->
+    <script src="../static/js/slider/bootstrap-slider.js"></script>
+    <!-- file input -->
+    <script src="../static/js/file-input/bootstrap-filestyle.min.js"></script>
+    <!-- wysiwyg -->
+    <script src="../static/js/wysiwyg/jquery.hotkeys.js"></script>
+    <script src="../static/js/wysiwyg/bootstrap-wysiwyg.js"></script>
+    <script src="../static/js/wysiwyg/demo.js"></script>
+    <!-- markdown -->
+    <script src="../static/js/markdown/epiceditor.min.js"></script>
+    <script src="../static/js/markdown/demo.js"></script>
+
+    <script src="../static/js/chosen/chosen.jquery.min.js"></script>
+    <script src="../static/js/app.plugin.js"></script>
+    <script src="../static/js/jquery.materialripple.js"></script>
+    <script src="../static/js/redirect.js"></script>
+    <script src="../static/js/profile.js"></script>
+    <script src="../static/js/side.js"></script>
+
+    <script>
+
+    $(function(){
+
+      $.ajax({
+          url: '/get_file_dir',
+          type: 'POST',
+          success: function(response) {
+            console.log(response);
+            var response = JSON.parse(response);
+            /*for(var i = 0; i < response['file'].length;i++)
+            {
+                document.getElementById('t').innerHTML += '<tr><td>'+(i+1)+'</td><td><i class="fa fa-file"></i> '+response['file'][i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Edit</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View/Play</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Rename</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-file-zip-o"></i> Unzip</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+            }*/
+
+            for(var i = 0; i < response['dir'][0].length ;i++)
+            {
+                document.getElementById('t').innerHTML += '<tr><td><a href = "/folder?src='+response['dir'][1]+'/'+response['dir'][0][i]+'"><i class="fa fa-folder"></i> '+response['dir'][0][i]+'</a></td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/delete_folder?src='+response['dir'][1]+'/'+response['dir'][0][i]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li></ul></div></td></tr>'
+            }
+            console.log(response);
+            k = Object.keys(response['file']);
+            for(var i = 0; i < k.length;i++)
+            {
+                if(response['file'][k[i]][1].indexOf('text') >= 0){
+                document.getElementById('t').innerHTML += '<tr><td><i class="fa fa-file"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/edit?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Edit</a></li><li><a href="/view_txt?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View</a></li><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" id = "'+response['file'][k[i]][0]+'"onclick = "click_share(this);" role="button" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+              }
+
+              if(response['file'][k[i]][1].indexOf('pdf') >= 0){
+              document.getElementById('t').innerHTML += '<tr><td>'+(i+1)+'</td><td><i class="fa fa-file-pdf-o"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/view_pdf?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View</a></li><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" role="button" class="btn btn-default btn-sm" id = "'+response['file'][k[i]][0]+'" onclick = "click_share(this);" ><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>';
+            }
+
+              if(response['file'][k[i]][1].indexOf('video') >= 0){
+              document.getElementById('t').innerHTML += '<tr><td><i class="fa fa-file-video-o"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/view_video?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View/Play</a></li><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" role="button" id = "'+response['file'][k[i]][0]+'" onclick = "click_share(this);" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+            }
+
+            if(response['file'][k[i]][1].indexOf('audio') >= 0){
+            document.getElementById('t').innerHTML += '<tr><td><i class="fa fa-file-audio-o"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/view_audio?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View/Play</a></li><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" role="button" id = "'+response['file'][k[i]][0]+'"onclick = "click_share(this);" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+          }
+
+            if(response['file'][k[i]][1].indexOf('image') >= 0){
+            document.getElementById('t').innerHTML += '<tr><td><i class="fa fa-file-image-o"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/view_image?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View/Play</a></li><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" id = "'+response['file'][k[i]][0]+'"onclick = "click_share(this);" role="button" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+          }
+
+            if(response['file'][k[i]][1].indexOf('zip') >= 0 && k[i].indexOf('.zip') >= 0){
+              document.getElementById('t').innerHTML += '<tr><td><i class="fa fa-file-zip-o"></i> '+k[i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="/download?src='+k[i]+'&folder='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="/delete_store_file?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="/unzip?src='+response['file'][k[i]][0]+'" role="button" class="btn btn-default btn-sm"><i class="fa fa-file-zip-o"></i> Unzip</a></li><li><a href="#" id = "'+response['file'][k[i]][0]+'"role="button" onclick = "click_share(this);" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+          }
+            }
+
+
+
+    },
+    error: function(error) {
+        console.log(error);
+    }
+
+  });
+
+  $.ajax({
+      url: '/get_file_dir_share',
+      type: 'POST',
+      success: function(response) {
+        console.log(response);
+        var response = JSON.parse(response);
+        /*for(var i = 0; i < response['file'].length;i++)
+        {
+            document.getElementById('t').innerHTML += '<tr><td>'+(i+1)+'</td><td><i class="fa fa-file"></i> '+response['file'][i]+'</td><td class="dropdown"><div class="btn-group"><button data-toggle="dropdown" class="btn btn-xs dropdown-toggle" data-original-title="" title="">Action<span class="caret"></span></button><ul class="dropdown-menu pull-right"><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Edit</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-play"></i> View/Play</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-cloud-download"></i> Download</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Rename</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-remove"></i> Delete</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-file-zip-o"></i> Unzip</a></li><li><a href="#" role="button" class="btn btn-default btn-sm"><i class="fa fa-share-alt"></i> Share</a></li></ul></div></td></tr>'
+        }*/
+
+        for(var i = 0; i < response['dir'][0].length ;i++)
+        {
+            document.getElementById('s').innerHTML += '<tr><td><a href = "/folder_share?src='+response['dir'][1]+'/'+response['dir'][0][i]+'"><i class="fa fa-folder"></i> '+response['dir'][0][i]+'</a></td></tr>'
+        }
+      },
+      error: function(error) {
+          console.log(error);
+      }
+});
+
+});
+var share_file;
+function click_share(ab)
+{
+  share_file = ab.id;
+  document.getElementById('share').style.display = 'block';
+}
+$('#mis_n').keyup(function() {
+  var name = document.getElementById('mis_n').value;
+  name = name.replace(/\s+/g, '');
+  if(name != '' && name != ""){
+  $.ajax({
+      url: '/check_share',
+      data:{'mis':document.getElementById('mis_n').value},
+      type: 'POST',
+      success: function(response) {
+
+          var response = JSON.parse(response);
+          if(response['status'] == 'available')
+          {
+            document.getElementById('succ').style.display = '';
+            document.getElementById('err').style.display = 'none';
+            document.getElementById('mis').innerHTML = document.getElementById('mis_n').value;
+            document.getElementById('name3').innerHTML = response['name'];
+            document.getElementById('sub').disabled = false;
+
+
+
+
+          }
+          if(response['status'] == 'na')
+          {
+            document.getElementById('succ').style.display = 'none';
+            document.getElementById('err').style.display = '';
+            document.getElementById('sub').disabled = true;
+
+
+          }
+
+},
+error: function(error) {
+    console.log(error);
+}
+
+});
+
+$('#sub').click(function() {
+
+  window.location.href = '/share_file?src='+share_file+'&mis='+document.getElementById('mis_n').value;
+
+});
+
+}
+
+});
+
+    </script>
+
+
+</body>
+</html>

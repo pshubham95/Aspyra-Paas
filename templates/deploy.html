@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>Aspyra</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../static/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/icon.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/app.css" type="text/css" />
+    <link rel="stylesheet" href="../static/js/datepicker/datepicker.css" type="text/css" />
+    <link rel="stylesheet" href="../static/js/slider/slider.css" type="text/css" />
+    <link rel="stylesheet" href="../static/js/chosen/chosen.css" type="text/css" />
+    <link rel="stylesheet" href="../static/css/jquery.materialripple.css">
+
+    <!--[if lt IE 9]>
+    <script src="js/ie/html5shiv.js"></script>
+    <script src="js/ie/respond.min.js"></script>
+    <script src="js/ie/excanvas.js"></script>
+  <![endif]-->
+</head>
+<div id="loading"></div>
+<div id = "name2" style="display:none"></div>
+<body class="" id="b">
+<section class="vbox">
+    <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
+        <div class="navbar-header aside-md dk">
+            <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="/" class="navbar-brand">
+          <span class="hidden-nav-xs">          <img src="../static/images/aspyra_logo.png" class="m-r-sm" alt="scale">
+Aspyra</span>
+            </a>
+            <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".user">
+                <i class="fa fa-cog"></i>
+            </a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user user">
+
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="thumb-sm avatar pull-left">
+              <img id = "profile1" src="../static/images/a0.png" alt="...">
+            </span>
+                    <span id="name"></span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+                  <li>
+                    <a href="/profile">Profile</a>
+                  </li>
+
+                  <li>
+                    <a href="/faq">FAQ</a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="/logout" data-toggle="ajaxModal" onclick="localStorage.clear();">Logout</a>
+                  </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <section>
+        <section class="hbox stretch">
+            <!-- .aside -->
+            <aside class="bg-black aside-md hidden-print" id="nav">
+                <section class="vbox">
+                    <section class="w-f scrollable">
+                        <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
+                            <div class="clearfix wrapper dk nav-user hidden-xs">
+                                <div class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb avatar pull-left m-r">
+                        <img id = "profile2" src="../static/images/a0.png" class="dker" alt="...">
+                        <i class="on md b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-t-xs">
+                          <strong class="font-bold text-lt" id="name1"></strong>
+                          <b class="caret"></b>
+                        </span>
+                      </span>
+                                    </a>
+                                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+
+                                      <li>
+                                        <a href="/profile">Profile</a>
+                                      </li>
+
+                                      <li>
+                                        <a href="/faq">FAQ</a>
+                                      </li>
+                                      <li class="divider"></li>
+                                      <li>
+                                        <a href="/logout" data-toggle="ajaxModal" onclick="localStorage.clear();">Logout</a>
+                                      </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <!-- nav -->
+                            <nav class="nav-primary hidden-xs">
+                              <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
+                              <ul class="nav nav-main" data-ride="collapse">
+                                <li  >
+                                  <a class="auto" href = "/login" >
+                                    <i class="i i-statistics icon">
+                                    </i>
+                                    <span class="font-bold">Home</span>
+                                  </a>
+                                </li>
+
+                                <li>
+                                  <a class="auto" href = "/calcy" >
+                                    <i class="fa fa-calculator">
+                                    </i>
+                                    <span class="font-bold">Calcy</span>
+                                  </a>
+                                </li>
+
+                                <li >
+                                  <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="i i-grid2 icon">
+                                    </i>
+                                    <span class="font-bold">Application List</span>
+                                  </a>
+                                  <ul class="nav dk" id="side">
+
+
+
+
+
+
+
+                                  </ul>
+                                </li>
+                                <li class="active" >
+                                  <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="i i-docs icon">
+                                    </i>
+                                    <span class="font-bold">Deploy Application</span>
+                                  </a>
+                                  <ul class="nav dk">
+                                    <li >
+                                      <a href="/deploy_test" class="auto" >
+                                        <i class="i i-dot"></i>
+
+                                        <span>Deploy and Test</span>
+                                      </a>
+                                    </li>
+                                    <li class="active">
+                                      <a href="/deploy" class="auto" >
+                                        <i class="i i-dot"></i>
+
+                                        <span>Deploy Application</span>
+                                      </a>
+                                    </li>
+                                    <li >
+                                      <a href="/deploy_cms" class="auto">
+                                        <i class="i i-dot"></i>
+
+                                        <span>Develop and Deploy (CMS)</span>
+                                      </a>
+                                    </li>
+
+                                  </ul>
+                                </li>
+                                <li >
+                                  <a href="/profile" class="auto" >
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                    <i class="fa fa-user">
+                                    </i>
+                                    <span class="font-bold">Profile</span>
+                                  </a>
+
+                                </li>
+
+                                <li>
+                                                 <a href="#" class="auto">
+                                    <span class="pull-right text-muted">
+                                      <i class="i i-circle-sm-o text"></i>
+                                      <i class="i i-circle-sm text-active"></i>
+                                    </span>
+                                                        <i class="fa fa-cloud">
+                                                        </i>
+                                                        <span class="font-bold">COE-Safe</span>
+                                                    </a>
+                                                    <ul class="nav dk">
+                                                        <li>
+                                                            <a href="/store_overview" class="auto">
+                                                                <i class="i i-dot"></i>
+
+                                                                <span>Drive Overview</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="/drive_save" class="auto">
+                                                                <i class="i i-dot"></i>
+
+                                                                <span>Store Data</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                              </ul>
+                              <div class="line dk hidden-nav-xs"></div>
+
+
+                            </nav>
+                        </div>
+                    </section>
+
+                    <footer class="footer hidden-xs no-padder text-center-nav-xs">
+                        <a href="/logout" onclick = "localStorage.clear();" data-toggle="ajaxModal" class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+                            <i class="i i-logout"></i>
+                        </a>
+                        <a href="#nav" data-toggle="class:nav-xs" class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+                            <i class="i i-circleleft text"></i>
+                            <i class="i i-circleright text-active"></i>
+                        </a>
+                    </footer>
+                </section>
+            </aside>
+            <!-- /.aside -->
+            <section id="content">
+                <section class="vbox">
+                    <section class="scrollable padder">
+                        <div class="m-b-md">
+                        </div>
+
+
+                        <section class="panel panel-success">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title" style="font-weight: bold">Instructions</h3>
+                                </div>
+                                <div class="panel-body">
+                                    1. This option is purely for deployment purposes. You cannot access or change the appliation deployed.<br>
+                                    2. You can take a dump of your SQl database. <br>
+                                    3. If you want to change your code dynamically or run a trial code then use the Deploy and Test option. <br>
+                                    4. The Deploy option is much safer, faster and easier than the Deploy and test option.
+                                </div>
+                            </div>
+                            <header class="panel-heading font-bold">
+                                Application Deploymet Wizard
+                            </header>
+                            <div class="panel-body">
+                                <form class="form-horizontal" method="get">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Choose the Application to be installed</label>
+                                        <div class="col-sm-10">
+                                            <div class="radio i-checks">
+                                                <label>
+                                                    <input id = "1" type="radio" name="a" value="1" checked onclick="removedb(this);">
+                                                    <i></i>
+                                                    LAMP Application without Database
+                                                </label>
+                                            </div>
+                                            <div class="radio i-checks">
+                                                <label>
+                                                    <input id = "2" type="radio" name="a" value="2" onclick="adddb();" >
+                                                    <i></i>
+                                                    LAMP Application with MySQL Database
+                                                </label>
+                                            </div>
+
+                                          <!--  <div class="radio i-checks">
+                                                <label>
+                                                    <input id = "3" type="radio" name="a" value="3" onclick="adddb();">
+                                                    <i></i>
+                                                    Tomcat with MySQL Database
+                                                </label>
+                                            </div>-->
+                                            <div class="radio i-checks">
+                                                <label>
+                                                    <input id = "4" type="radio" name="a" value="4" onclick="removedb(this);">
+                                                    <i></i>
+                                                    Tomcat without Database
+                                                </label>
+                                            </div>
+
+
+
+
+                                            </select>
+                                        </div></div>
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Application Name (only lowercase characters allowed)</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id = "appname" name="appname" placeholder="Enter Application Name" onkeyup="ch_name();">
+                                            <span class="help-block m-b-none label label-md label-danger" id="err" style="display:none;">App name already exists use a different app name</span>
+                                            <span class="help-block m-b-none label label-md label-success" id="succ" style="display:none;">Valid App name</span>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+
+
+                                    <div class="form-group" style="display:none;" id = "dbname">
+                                        <label class="col-sm-2 control-label">Database Name</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control"  id = 'd' name="dbname" placeholder="Enter DB Name" onkeyup="ch_db();">
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </form>
+                                <form id="upzip" class="form-horizontal" method = "post" enctype="multipart/form-data" >
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">Upload zip</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="filestyle" data-icon="false" data-classButton="btn btn-primary" data-classInput="form-control inline v-middle input-s" id="zipup" name="zipup" onchange="ch_file();" accept="application/x-zip-compressed">
+                                            <br><span class = "help-block m-b-none">Maximum Size 50MB</span>
+                                            <br><span class = "help-block m-b-none label label-md label-danger" id="ziperr" style="display:none;">The uploaded file is not a zip</span>
+                                            <br><span class = "help-block m-b-none label label-md label-danger" id="zipsize" style="display:none;">File size exceeds 50 MB</span>
+                                        </div>
+                                    </div></form>
+
+                                <form id="upsqldump" class="form-horizontal" method = "post" enctype="multipart/form-data" >
+                                    <div class="form-group" id="mydump" style="display:none;">
+                                        <label class="col-sm-2 control-label">Upload MySQL Dump</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="filestyle" data-icon="false" data-classButton="btn btn-primary" data-classInput="form-control inline v-middle input-s" id="dump" name="dump" onchange="ch_file1();" accept="application/x-zip-compressed">
+                                            <br><span class = "help-block m-b-none label label-md label-danger" id="dumperr" style="display:none;">The uploaded file is not a MySQL Dump file</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                                    <div class="form-group">
+                                        <div class="col-sm-10">
+                                            <button type="button" class="btn btn-success ripple" id="sub">Submit</button>
+                                        </div>
+                                    </div></form>
+
+                            </div>
+                        </section>
+                    </section>
+                </section>
+                <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+            </section>
+        </section>
+    </section>
+</section>
+<script src="../static/js/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../static/js/bootstrap.js"></script>
+<!-- App -->
+<script src="../static/js/app.js"></script>
+<script src="../static/js/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- datepicker -->
+<script src="../static/js/datepicker/bootstrap-datepicker.js"></script>
+<!-- slider -->
+<script src="../static/js/slider/bootstrap-slider.js"></script>
+<!-- file input -->
+<script src="../static/js/file-input/bootstrap-filestyle.min.js"></script>
+<!-- wysiwyg -->
+<script src="../static/js/wysiwyg/jquery.hotkeys.js"></script>
+<script src="../static/js/wysiwyg/bootstrap-wysiwyg.js"></script>
+<script src="../static/js/wysiwyg/demo.js"></script>
+<!-- markdown -->
+<script src="../static/js/markdown/epiceditor.min.js"></script>
+<script src="../static/js/markdown/demo.js"></script>
+
+<script src="../static/js/chosen/chosen.jquery.min.js"></script>
+<script src="../static/js/app.plugin.js"></script>
+<script src="../static/js/jquery.materialripple.js"></script>
+<script src="../static/js/redirect.js"></script>
+<script src="../static/js/profile.js"></script>
+<script src="../static/js/side.js"></script>
+
+
+<script type="text/javascript">
+    var db = false;
+    function adddb()
+    {
+        document.getElementById('upzip').style.display = 'block';
+        document.getElementById('mydump').style.display = 'block';
+        document.getElementById('dbname').style.display = 'block';
+
+        db = true;
+        dump = false;
+        validate();
+    }
+
+    function removedb(abc)
+    {
+        document.getElementById('upzip').style.display = 'block';
+
+        document.getElementById('mydump').style.display = 'none';
+        document.getElementById('dbname').style.display = 'none';
+
+        db = false;
+        dump = true;
+        db_name = true;
+        if(abc.id == '4') {
+            document.getElementById('upzip').style.display = 'none';
+            c_file = true;
+
+        }
+        validate();
+
+    }
+
+    $(function(){
+        $('.ripple').materialripple();
+        document.getElementById('sub').disabled = true;
+
+        $.ajax({
+            url: '/get_num_app',
+            data:{'type':'1'},
+            type: 'POST',
+            success: function(response) {
+              var response = JSON.parse(response);
+              if(response.length == 3)
+              {
+                window.location.href = '/three_error'
+              }
+      },
+      error: function(error) {
+          console.log(error);
+      }
+
+    });
+
+
+          $('#appname').keyup(function() {
+            var name = document.getElementById('appname').value;
+            name = name.replace(/\s+/g, '');
+            name = name.toLowerCase();
+            document.getElementById('appname').value = name;
+            if(name != '' && name != ""){
+            $.ajax({
+                url: '/checkappname',
+                data:{'name':document.getElementById('appname').value},
+                type: 'POST',
+                success: function(response) {
+
+                    var response = JSON.parse(response);
+                    if(response['status'] == 'available')
+                    {
+                      document.getElementById('succ').style.display = '';
+                      document.getElementById('err').style.display = 'none';
+
+                    }
+                    if(response['status'] == 'na')
+                    {
+                      document.getElementById('succ').style.display = 'none';
+                      document.getElementById('err').style.display = '';
+                      document.getElementById('sub').disabled = true;
+                      c_name = false;
+                      validate();
+
+
+                    }
+
+          },
+          error: function(error) {
+              console.log(error);
+          }
+
+        });
+
+      }
+
+      });
+
+
+
+
+        $('#sub').click(function() {
+            var form = $('#upzip')[0]; // You need to use standart javascript object here
+            var form_data = new FormData(form);
+            var app_n = document.getElementById('appname').value;
+            form_data.append('name',app_n);
+            form_data.append('dump',dump)
+            if(document.getElementById('1').checked){
+                form_data.append('opt',document.getElementById('1').value);
+            }
+
+            if(document.getElementById('2').checked){
+                form_data.append('opt',document.getElementById('2').value);
+            }
+
+            if(document.getElementById('3').checked){
+                form_data.append('opt',document.getElementById('3').value);
+            }
+            if(document.getElementById('4').checked){
+                form_data.append('opt',document.getElementById('4').value);
+            }
+            $.ajax({
+                url: '/deployfile_zip',
+                data:form_data,
+                type: 'POST',
+                processData: false,
+                contentType: false,
+
+
+                success: function(response) {
+                    console.log(response);
+
+                    if(dump && document.getElementById('dump').value != ''){
+                        var form1 = $('#upsqldump')[0]; // You need to use standart javascript object here
+                        var form_data1= new FormData(form1);
+                        var app_n = document.getElementById('appname').value;
+                        form_data1.append('name',app_n);
+                        form_data1.append('dump',dump);
+                        if(document.getElementById('1').checked){
+                            form_data1.append('opt',document.getElementById('1').value);
+
+                        }
+
+                        if(document.getElementById('2').checked){
+                            form_data1.append('opt',document.getElementById('2').value);
+
+                        }
+
+                        if(document.getElementById('3').checked){
+                            form_data1.append('opt',document.getElementById('3').value);
+
+                        }
+                        if(document.getElementById('4').checked){
+                            form_data1.append('opt',document.getElementById('4').value);
+
+                        }
+                        form_data1.append('db_name',document.getElementById('d').value);
+                        $.ajax({
+                            url: '/deployfile_dump',
+                            data:form_data1,
+                            type: 'POST',
+                            processData: false,
+                            contentType: false,
+
+
+                            success: function(response) {
+                                console.log(response);
+                            },
+
+                            error: function(error) {
+                                console.log(error);
+
+                            }
+
+                        });
+
+                    }
+                },
+
+                error: function(error) {
+                    console.log(error);
+
+                }
+
+            });
+
+
+        });
+
+
+
+
+    });
+
+
+
+
+
+    var c_name = false;
+    var c_file = false;
+    var dump = true;
+    var db_name = false;
+    function validate()
+    {
+        if(c_name && c_file && dump && db_name)
+        {
+
+            document.getElementById('sub').disabled = false;
+        }
+        else
+        {
+            document.getElementById('sub').disabled = true;
+        }
+
+
+    }
+    function ch_name()
+    {
+
+        var n = document.getElementById('appname').value;
+        if(n != '' && n != ' ')
+        {
+
+            c_name = true;
+            validate();
+        }
+
+        else
+        {
+
+            c_name = false;
+            validate();
+        }
+    }
+
+    function ch_db()
+    {
+
+        var n = document.getElementById('d').value;
+        if(n != '' && n != ' ')
+        {
+
+            db_name = true;
+            validate();
+        }
+
+        else
+        {
+
+            db_name = false;
+            validate();
+        }
+    }
+
+    function ch_file()
+    {
+        if(document.getElementById('zipup').value != '')
+        {
+
+            if(document.getElementById('zipup').value.split('.').pop() == 'zip')
+            {
+                if(document.getElementById('zipup').files[0].size <= 52428800)
+                {
+                    c_file = true;
+                    document.getElementById('ziperr').style.display = 'none';
+                    document.getElementById('zipsize').style.display = 'none';
+                }
+
+                else {
+                    c_file = false;
+                    document.getElementById('ziperr').style.display = 'none';
+                    document.getElementById('zipsize').style.display = '';
+                }
+            }
+            else {
+                c_file = false;
+                document.getElementById('ziperr').style.display = '';
+                document.getElementById('zipsize').style.display = 'none';
+
+            }
+            validate();
+        }
+
+        else
+        {
+
+            c_file = false;
+            validate();
+        }
+
+
+    }
+
+    function ch_file1()
+    {
+        if(document.getElementById('dump').value != '')
+        {
+
+            if(document.getElementById('dump').value.split('.').pop() == 'sql')
+            {
+                dump = true;
+                document.getElementById('dumperr').style.display = 'none';
+            }
+            else {
+                dump = false;
+                document.getElementById('dumperr').style.display = '';
+
+            }
+
+            validate();
+        }
+
+        else
+        {
+
+            dump = false;
+            validate();
+        }
+
+
+    }
+
+
+</script>
+</body>
+</html>

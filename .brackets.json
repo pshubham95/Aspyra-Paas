@@ -1,0 +1,20 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/pshubham/PycharmProjects/Aspyra_Flask/static/js/rollups/rc4.js",
+        "/home/pshubham/PycharmProjects/Aspyra_Flask/static/js/rollups/hmac-sha512.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/rabbit.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/hmac-ripemd160.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/tripledes.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/ripemd160.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/hmac-sha224.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/sha512.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/rc4.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/hmac-sha512.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/sha224.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/plugins/morris/raphael.min.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/sha3.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/plugins/morris/morris-data.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/rollups/hmac-md5.js",
+        "/home/pshubham/Documents/Aspyra_Flask/static/js/plugins/morris/morris.js"
+    ]
+}
